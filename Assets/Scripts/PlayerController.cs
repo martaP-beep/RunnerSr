@@ -62,4 +62,19 @@ public class PlayerController : MonoBehaviour
 
         return hit.collider != null;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("obstacle"))
+        {
+            PlayerDeath();
+        }
+    }
+
+    void PlayerDeath()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        GameManager.instance.GameOver();
+    }
+
 }
