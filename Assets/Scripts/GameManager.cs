@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public Text coinText;
     int coins;
 
+
+    public Immortality immortality;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
             coins = 0;
         }
         coinText.text = coins.ToString();
+
+        immortality.isActive = false;
     }
 
     public void GameOver()
@@ -70,5 +75,23 @@ public class GameManager : MonoBehaviour
         coins += points;
         coinText.text = coins.ToString();
         PlayerPrefs.SetInt("coin", coins);
+    }
+
+    public void ImmortalityCollected()
+    {
+        if (immortality.isActive)
+        {
+            CancelImmortality();
+            CancelInvoke("CancelImmortality");
+
+        }
+
+        immortality.isActive = true;
+        Invoke("CancelImmortality", immortality.GetDuration());
+    }
+
+    void CancelImmortality()
+    {
+        immortality.isActive = false;
     }
 }
