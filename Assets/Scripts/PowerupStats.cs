@@ -6,10 +6,15 @@ using UnityEngine;
 public class PowerupStats : ScriptableObject
 {
     [SerializeField]
-    private float value;
+    private float[] value;
 
-    public float GetValue()
+    public float GetValue(int level=1)
     {
-        return value;
+        if (level < 0)
+            return value[0];
+        else if (level >= value.Length)
+            return value[value.Length - 1];
+        else
+            return value[level - 1];
     }
 }
