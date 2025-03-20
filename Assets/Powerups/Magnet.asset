@@ -16,6 +16,6 @@ MonoBehaviour:
   duration: {fileID: 11400000, guid: 990d492dd75f0a24e902e73e32f92734, type: 2}
   currentLevel: 1
   maxLevel: 3
-  UpgradeCost: 0300000005000000
+  UpgradeCost: 280000005a000000
   range: {fileID: 11400000, guid: d65392749dbc5cd44b85010eeef00776, type: 2}
   speed: {fileID: 11400000, guid: a396b6a6efd630a41b783d9a4c3f120a, type: 2}
